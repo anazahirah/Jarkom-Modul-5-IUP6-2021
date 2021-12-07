@@ -19,17 +19,17 @@ Doriki adalah DNS Server <BR>
 <img src="https://user-images.githubusercontent.com/91376801/145010530-32bd9dd9-1e97-4513-8fe2-d103c9dffc2a.jpg" width="800"> <br>
 <img src="https://user-images.githubusercontent.com/91376801/145008155-75316b35-544a-40a1-aabc-e191dea7f859.jpg" width="618">
 	
-| Subnet | Node | IP  | Subnet Mask | Length |
-| ------------- | ------------- | ------------- | ------------- | ------------- |
-| A1  |   | 2021  | /21  |
-| A2  |              | 1001  | /22  |
-| A3  |              | 721  | /22  |
-| A4  |               | 701  | /22  |
-| A5  |             | 521  | /22  |
-| A6  |   | 502  | /23  |
-| A7  |   | 252  | /24  |
-| A8  |               | 101  | /25  |
-|  | Total               | 5845  | /19  |
+| Subnet | Node | IP  | Length |
+| ------------- | ------------- | ------------- | ------------- |	
+| A1  | DORIKI - WATER7 - JIPANGU  | 3  | /29 |
+| A2  | BLUENO - WATER7             | 101  | /25  |
+| A3  | WATER7 - CIPHER             | 701  | /22  |
+| A4  | WATER7 - FOOSHA              | 2 | /30  |
+| A5  | FOOSHA - GUANHAO            | 2  | /30  |
+| A6  | ELENA - GUANHAO  	| 301 | /23  |
+| A7  | GUANHAO - FUKUROU  | 201  | /24  |
+| A8  | JORGE - GUANHAO - MAINGATE              | 3  | /29  |
+|  | Total               | 1314  | /21  |
 
 ### **C.Kalian juga diharuskan melakukan Routing agar setiap perangkat pada jaringan tersebut dapat terhubung.** 
 
