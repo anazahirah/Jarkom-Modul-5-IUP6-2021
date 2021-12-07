@@ -16,8 +16,20 @@ Doriki adalah DNS Server <BR>
  
 ### **B. Karena kalian telah belajar subnetting dan routing, Luffy ingin meminta kalian untuk membuat topologi tersebut menggunakan teknik CIDR atau VLSM. setelah melakukan subnetting**   
 
-<img src="https://user-images.githubusercontent.com/91376801/145005768-fce3141d-d6ba-443c-9c17-719f19d1996c.jpg" width="800"> <br>
+<img src="https://user-images.githubusercontent.com/91376801/145010530-32bd9dd9-1e97-4513-8fe2-d103c9dffc2a.jpg" width="800"> <br>
 <img src="https://user-images.githubusercontent.com/91376801/145008155-75316b35-544a-40a1-aabc-e191dea7f859.jpg" width="618">
+	
+| Subnet | Node | IP  | Subnet Mask | Length |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| A1  |   | 2021  | /21  |
+| A2  |              | 1001  | /22  |
+| A3  |              | 721  | /22  |
+| A4  |               | 701  | /22  |
+| A5  |             | 521  | /22  |
+| A6  |   | 502  | /23  |
+| A7  |   | 252  | /24  |
+| A8  |               | 101  | /25  |
+|  | Total               | 5845  | /19  |
 
 ### **C.Kalian juga diharuskan melakukan Routing agar setiap perangkat pada jaringan tersebut dapat terhubung.** 
 
