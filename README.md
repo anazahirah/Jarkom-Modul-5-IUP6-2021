@@ -16,11 +16,11 @@ Doriki adalah DNS Server <BR>
 		Jumlah Host pada Elena adalah 300 host  <BR>
 		Jumlah Host pada Fukurou adalah 200 host  <BR>
 	
-<img width="618" alt="2021-12-07 (3)" src="https://user-images.githubusercontent.com/91376801/145005688-367ed2f1-a1fd-4986-a770-9e33547142ad.png">
+<img width="619" alt="Screen Shot 2021-12-07 at 21 30 40" src="https://user-images.githubusercontent.com/74056954/145047723-47b16819-1a78-41d1-a3e0-ad74ab8f40d9.png">
 
 ## B. Karena kalian telah belajar subnetting dan routing, Luffy ingin meminta kalian untuk membuat topologi tersebut menggunakan teknik CIDR atau VLSM. setelah melakukan subnetting.
 
-<img src="https://user-images.githubusercontent.com/91376801/145008155-75316b35-544a-40a1-aabc-e191dea7f859.jpg" width="500"> <br>
+<img width="627" alt="Screen Shot 2021-12-07 at 21 14 36" src="https://user-images.githubusercontent.com/74056954/145047632-537d9a2a-6186-486f-8df8-e39f69c343e2.png">
 <img src="https://user-images.githubusercontent.com/91376801/145010530-32bd9dd9-1e97-4513-8fe2-d103c9dffc2a.jpg" width="800"> <br>
 <img src="https://user-images.githubusercontent.com/91376801/145019318-9db633ab-bc1d-4061-80db-b53c9a29df24.png" width="600">
 	
