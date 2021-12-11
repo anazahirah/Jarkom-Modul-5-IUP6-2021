@@ -198,27 +198,74 @@ route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.211.7.149
 	
 ## D.Tugas berikutnya adalah memberikan ip pada subnet Blueno, Cipher, Fukurou, dan Elena secara dinamis menggunakan bantuan DHCP server. Kemudian kalian ingat bahwa kalian harus setting DHCP Relay pada router yang menghubungkannya.
 
+**Doriki - DNS Server**
+```
+apt update
+apt install bind9 -y
+apt install dnsutils -y
+	
+cp /root/named.conf.options /etc/bind/named.conf.options
+	
+servuce bind9 restart
+```
+![messageImage_1639195465125](https://user-images.githubusercontent.com/74056954/145663179-80fc74cc-81e9-4481-bce8-8f437abf5f6d.jpg)
+
+**Jipangu - DHCP Server**
+```
+apt update
+apt install nano
+apt install isc-dhcp-server -y
+
+cp /root/isc-dhcp-server /etc/default/isc-dhcp-server
+cp /root/dhcpd.conf /etc/dhcp.dhcpd.conf
+	
+service isc-dhcp-server restart
+```
+![messageImage_1639196095002](https://user-images.githubusercontent.com/74056954/145663436-5cab35d1-3666-491c-a27f-d9334bd9b2e6.jpg)
+
+```
+subnet 192.211.7.0 netmask 255.255.255.128 {
+    range 192.211.7.2 192.211.7.126;
+    option routers 192.211.7.1;
+    option broadcast-address 192.211.7.127;
+    option domain-name-servers 192.211.7.130;
+    default-lease-time 600;
+    max-lease-time 7200;
+}
+subnet 192.211.0.0 netmask 255.255.252.0 {
+    range 192.211.0.2 192.211.3.254;
+    option routers 192.211.0.1;
+    option broadcast-address 192.211.3.255;
+    option domain-name-servers 192.211.7.130;
+    default-lease-time 600;
+    max-lease-time 7200;
+}
+subnet 192.211.4.0 netmask 255.255.254.0 {
+    range 192.211.4.2 192.211.5.254;
+    option routers 192.211.4.1;
+    option broadcast-address 192.211.5.255;
+    option domain-name-servers 192.211.7.130;
+    default-lease-time 600;
+    max-lease-time 7200;
+}
+subnet 192.211.6.0 netmask 255.255.255.0 {
+    range 192.211.6.2 192.211.6.254;
+    option routers 192.211.6.1;
+    option broadcast-address 192.211.6.255;
+    option domain-name-servers 192.211.7.130;
+    default-lease-time 600;
+    max-lease-time 7200;
+}
+
+subnet 192.211.7.128 netmask 255.255.255.248 {
+    option routers 192.211.7.129;
+}
+```
+![messageImage_1639195353736](https://user-images.githubusercontent.com/74056954/145663446-72563e69-e411-49a8-8047-d25e3e03b6b3.jpg)
+
+
 ## 1.Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk mengkonfigurasi Foosha menggunakan iptables, tetapi Luffy tidak ingin menggunakan MASQUERADE.
 
 ## 2.Kalian diminta untuk mendrop semua akses HTTP dari luar Topologi kalian pada server yang merupakan DHCP Server dan DNS Server demi menjaga keamanan.
 
-```
-iptables -A FORWARD -d 192.211.7.128/29 -i eth0 -p tcp --dport 80 -j DROP
-iptables -A FORWARD -d 192.211.7.128/29 -i eth0 -p tcp --dport 443 -j ACCEPT
-
-ping google.com
-ping monta.if.its.ac.id
-```
-
 ## 3.Karena kelompok kalian maksimal terdiri dari 3 orang. Luffy meminta kalian untuk membatasi DHCP dan DNS Server hanya boleh menerima maksimal 3 koneksi ICMP secara bersamaan menggunakan iptables, selebihnya didrop.
-
-kami menaruh di IP-IP DHCP server dan DNS Server 
-```
-iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP
-```
-
-## Kemudian kalian diminta untuk membatasi akses ke Doriki yang berasal dari subnet Blueno, Cipher, Elena dan Fukuro dengan beraturan sebagai berikut
-
-## 4.Akses dari subnet Blueno dan Cipher hanya diperbolehkan pada pukul 07.00 - 15.00 pada hari Senin sampai Kamis.
-
-## 5.Akses dari subnet Elena dan Fukuro hanya diperbolehkan pada pukul 15.01 hingga pukul 06.59 setiap harinya.
