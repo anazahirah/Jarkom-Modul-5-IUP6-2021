@@ -263,6 +263,11 @@ subnet 192.211.7.128 netmask 255.255.255.248 {
 ```
 ![messageImage_1639195353736](https://user-images.githubusercontent.com/74056954/145663446-72563e69-e411-49a8-8047-d25e3e03b6b3.jpg)
 
+**Water7 - DHCP Relay**
+![messageImage_1639196608940](https://user-images.githubusercontent.com/74056954/145663622-355ccbe9-4cfd-4caf-b207-715c71691559.jpg)
+
+**Guanhao - DHCP Relay**
+![messageImage_1639196705038(1)](https://user-images.githubusercontent.com/74056954/145663639-c3713d8c-0304-4208-b31c-f22a35e9f01c.jpg)
 
 ## 1.Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk mengkonfigurasi Foosha menggunakan iptables, tetapi Luffy tidak ingin menggunakan MASQUERADE.
 
