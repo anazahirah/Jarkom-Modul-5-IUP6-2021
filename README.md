@@ -346,3 +346,8 @@ ping 192.211.7.130
 ![messageImage_1639197884231](https://user-images.githubusercontent.com/91376801/145664450-657e9db9-a67f-48bc-bb3a-e43f0cea5a4d.jpg)
 ![messageImage_1639198332382](https://user-images.githubusercontent.com/91376801/145664489-28ebb389-8c9e-4890-87e2-c693cfe8c043.jpg)
 ![messageImage_1639198302807](https://user-images.githubusercontent.com/91376801/145664492-833d9a1d-e1f6-44bf-954b-cea4e697fd6c.jpg)
+	
+## Problems.
+- In number 2, we could not get the filtered result at first (SOLVED) <br>
+- We confused for number 1 because of the MASQUERDE restriction (SOLVED) <br>
+- We could not comprehend number 6 <br>
