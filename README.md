@@ -36,6 +36,147 @@ Doriki adalah DNS Server <BR>
 | A8  | JORGE - GUANHAO - MAINGATE              | 3  | /29  |
 |  | Total               | 1314  | /21  |
 
+	
+## Node Configuration
+**Foosha**
+```
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+	address 192.211.7.145
+	netmask 255.255.255.252
+
+auto eth2
+iface eth2 inet static
+	address 192.211.7.149
+	netmask 255.255.255.252
+```
+	
+**Water7**
+```
+auto eth0
+iface eth0 inet static
+ 	address 192.211.7.146
+ 	netmask 255.255.255.252
+   	gateway 192.211.7.145
+  
+auto eth1
+iface eth1 inet static
+ 	address 192.211.7.129
+ 	netmask 255.255.255.248
+  
+auto eth2
+iface eth2 inet static
+  	address 192.211.7.1
+  	netmask 255.255.255.128
+
+auto eth3
+iface eth3 inet static
+  	address 192.211.0.1
+  	netmask 255.255.252.0
+```
+	
+**Guanhao**
+```
+auto eth0
+iface eth0 inet static
+    	address 192.211.7.150
+    	netmask 255.255.255.252
+    	gateway 192.211.7.149
+
+auto eth1
+iface eth1 inet static
+    	address 192.211.4.1
+    	netmask 255.255.254.0
+
+auto eth2
+iface eth2 inet static
+    	address 192.211.6.1
+    	netmask 255.255.255.0
+
+auto eth3
+iface eth3 inet static
+    	address 192.211.7.137
+    	netmask 255.255.255.248
+```
+	
+**Jipangu**
+```
+auto eth0
+iface eth0 inet static
+	address 192.211.7.131
+	netmask 255.255.255.248
+	gateway 192.211.7.129
+```
+	
+**Doriki**
+```
+auto eth0
+iface eth0 inet static
+	address 192.211.7.130
+	netmask 255.255.255.248
+	gateway 192.211.7.129
+```
+	
+**Blueno**
+```
+auto eth0
+iface eth0 inet dhcp
+	# address 192.211.7.2
+	# netmask 255.255.255.128
+	# gateway 192.211.7.1
+```
+
+**Cipher**
+```
+auto eth0
+iface eth0 inet dhcp
+	#address 192.211.0.2
+	#netmask 255.255.252.0
+	#gateway 192.211.0.1
+```
+	
+**Elena**
+```
+auto eth0
+iface eth0 inet dhcp
+	#address 192.211.4.2
+	#netmask 255.255.254.0
+	#gateway 192.211.4.1
+```
+	
+**Fukurou**
+```
+auto eth0
+iface eth0 inet dhcp
+	address 192.211.6.2
+	netmask 255.255.255.0
+	gateway 192.211.6.1
+```	
+	
+**Jorge**
+```
+auto eth0
+iface eth0 inet static
+	address 192.211.7.138
+	netmask 255.255.255.248
+	gateway 192.211.7.137
+```	
+	
+**Maingate**
+```
+auto eth0
+iface eth0 inet static
+	address 192.211.7.139
+	netmask 255.255.255.248
+	gateway 192.211.7.137
+```	
+	
 ## C.Kalian juga diharuskan melakukan Routing agar setiap perangkat pada jaringan tersebut dapat terhubung.
 
 ## D.Tugas berikutnya adalah memberikan ip pada subnet Blueno, Cipher, Fukurou, dan Elena secara dinamis menggunakan bantuan DHCP server. Kemudian kalian ingat bahwa kalian harus setting DHCP Relay pada router yang menghubungkannya.
