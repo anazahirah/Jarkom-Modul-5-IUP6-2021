@@ -280,7 +280,12 @@ ip foosha could change when starting the gns <br>
 ```
 iptables -A FORWARD -d 192.211.7.128/29 -i eth0 -p tcp --dport 80 -j DROP
 iptables -A FORWARD -d 192.211.7.128/29 -i eth0 -p tcp --dport 443 -j ACCEPT
-``` 	
+```
+**water7**
+```
+iptables -A FORWARD -d 192.211.7.131 -p tcp --dport 80 -j DROP
+iptables -A FORWARD -d 192.211.7.130 -p tcp --dport 80 -j DROP
+```
 ping google.com <br>
 ping monta.if.its.ac.id <br>
 	
@@ -290,5 +295,53 @@ Kami menaruh di IP-IP DHCP server dan DNS Server<br>
 iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP
 ```
 ## 4.Akses dari subnet Blueno dan Cipher hanya diperbolehkan pada pukul 07.00 - 15.00 pada hari Senin sampai Kamis.
-
+Script yang kita gunakan untuk run di doriki <br>
+**BLUENO**
+```
+iptables -A INPUT -s 192.211.7.0/25 -m time --timestart 07:00 --timestop 15:00 --weekdays Mon,Tue,Wed,Thu -j ACCEPT
+iptables -A INPUT -s 192.211.7.0/25 -j REJECT
+```
+**CIPHER**
+```
+iptables -A INPUT -s 192.211.0.0/22 -m time --timestart 07:00 --timestop 15:00 --weekdays Mon,Tue,Wed,Thu -j ACCEPT
+iptables -A INPUT -s 192.211.0.0/22 -j REJECT
+```
+**blueno TEST**
+```
+date -s "13 DEC 2021 20:00:00" ga
+ping 192.211.7.130
+	
+date -s "13 DEC 2021 09:00" sabi
+ping 192.211.7.130
+```
+![messageImage_1639197625265](https://user-images.githubusercontent.com/91376801/145664273-b55dbed2-e86e-47ca-aab4-ad95cdb56024.jpg)
+**cipher TEST**
+```
+date -s "11 DEC 2021 10:00:00" ga
+ping 192.211.7.130
+```
+![messageImage_1639197688179](https://user-images.githubusercontent.com/91376801/145664372-2bab98e3-8e7e-418b-9761-ace272e21d99.jpg)
+	
 ## 5.Akses dari subnet Elena dan Fukuro hanya diperbolehkan pada pukul 15.01 hingga pukul 06.59 setiap harinya.
+Script yang kita gunakan untuk run di doriki <br>
+**ELENA**
+```
+iptables -A INPUT -s 192.211.4.0/23 -m time --timestart 15:01 --timestop 06:59 -j ACCEPT
+iptables -A INPUT -s 192.211.4.0/23 -j REJECT
+```
+**FUKUROU**
+```
+iptables -A INPUT -s 192.211.6.0/24 -m time --timestart 15:01 --timestop 06:59 -j ACCEPT
+iptables -A INPUT -s 192.211.6.0/24 -j REJECT
+```
+**elena and fukurou TEST**
+```
+date -s "6 DEC 2021 14:00:00" ga
+ping 192.211.7.130
+date -s "7 DEC 2021 04:00:00" sabi
+ping 192.211.7.130
+```
+![messageImage_1639197832980](https://user-images.githubusercontent.com/91376801/145664448-1c71f39a-f118-43d0-86e6-39dc2ccde7b1.jpg)
+![messageImage_1639197884231](https://user-images.githubusercontent.com/91376801/145664450-657e9db9-a67f-48bc-bb3a-e43f0cea5a4d.jpg)
+![messageImage_1639198332382](https://user-images.githubusercontent.com/91376801/145664489-28ebb389-8c9e-4890-87e2-c693cfe8c043.jpg)
+![messageImage_1639198302807](https://user-images.githubusercontent.com/91376801/145664492-833d9a1d-e1f6-44bf-954b-cea4e697fd6c.jpg)
