@@ -272,7 +272,23 @@ subnet 192.211.7.128 netmask 255.255.255.248 {
 ![messageImage_1639196705038(1)](https://user-images.githubusercontent.com/74056954/145663639-c3713d8c-0304-4208-b31c-f22a35e9f01c.jpg)
 
 ## 1.Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk mengkonfigurasi Foosha menggunakan iptables, tetapi Luffy tidak ingin menggunakan MASQUERADE.
-
+nano config.sh di Foosha <br>
+```iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source [ip foosha]```<br>
+**note:**
+ip foosha could change when starting the gns <br>
 ## 2.Kalian diminta untuk mendrop semua akses HTTP dari luar Topologi kalian pada server yang merupakan DHCP Server dan DNS Server demi menjaga keamanan.
-
+```
+iptables -A FORWARD -d 192.211.7.128/29 -i eth0 -p tcp --dport 80 -j DROP
+iptables -A FORWARD -d 192.211.7.128/29 -i eth0 -p tcp --dport 443 -j ACCEPT
+``` 	
+ping google.com <br>
+ping monta.if.its.ac.id <br>
+	
 ## 3.Karena kelompok kalian maksimal terdiri dari 3 orang. Luffy meminta kalian untuk membatasi DHCP dan DNS Server hanya boleh menerima maksimal 3 koneksi ICMP secara bersamaan menggunakan iptables, selebihnya didrop.
+Kami menaruh di IP-IP DHCP server dan DNS Server<br>
+```
+iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP
+```
+## 4.Akses dari subnet Blueno dan Cipher hanya diperbolehkan pada pukul 07.00 - 15.00 pada hari Senin sampai Kamis.
+
+## 5.Akses dari subnet Elena dan Fukuro hanya diperbolehkan pada pukul 15.01 hingga pukul 06.59 setiap harinya.
