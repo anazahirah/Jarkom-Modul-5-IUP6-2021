@@ -178,7 +178,24 @@ iface eth0 inet static
 ```	
 	
 ## C.Kalian juga diharuskan melakukan Routing agar setiap perangkat pada jaringan tersebut dapat terhubung.
+**Foosha**
+```
+route add -net 192.211.7.128 netmask 255.255.255.248 gw 192.211.7.145
+route add -net 192.211.7.0 netmask 255.255.255.128 gw 192.211.7.145
+route add -net 192.211.0.0 netmask 255.255.252.0 gw 192.211.7.145
 
+
+route add -net 192.211.4.0 netmask 255.255.254.0 gw 192.211.7.150
+route add -net 192.211.6.0 netmask 255.255.255.0 gw 192.211.7.150
+route add -net 192.211.7.136  netmask 255.255.255.248 gw 192.211.7.150
+```
+
+**Water7 & Guanhao**
+```
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.211.7.146
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.211.7.149
+```
+	
 ## D.Tugas berikutnya adalah memberikan ip pada subnet Blueno, Cipher, Fukurou, dan Elena secara dinamis menggunakan bantuan DHCP server. Kemudian kalian ingat bahwa kalian harus setting DHCP Relay pada router yang menghubungkannya.
 
 ## 1.Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk mengkonfigurasi Foosha menggunakan iptables, tetapi Luffy tidak ingin menggunakan MASQUERADE.
