@@ -202,7 +202,19 @@ route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.211.7.149
 
 ## 2.Kalian diminta untuk mendrop semua akses HTTP dari luar Topologi kalian pada server yang merupakan DHCP Server dan DNS Server demi menjaga keamanan.
 
+```
+iptables -A FORWARD -d 192.211.7.128/29 -i eth0 -p tcp --dport 80 -j DROP
+iptables -A FORWARD -d 192.211.7.128/29 -i eth0 -p tcp --dport 443 -j ACCEPT
+
+ping google.com
+ping monta.if.its.ac.id
+```
+
 ## 3.Karena kelompok kalian maksimal terdiri dari 3 orang. Luffy meminta kalian untuk membatasi DHCP dan DNS Server hanya boleh menerima maksimal 3 koneksi ICMP secara bersamaan menggunakan iptables, selebihnya didrop.
+
+```
+iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP
+```
 
 ## Kemudian kalian diminta untuk membatasi akses ke Doriki yang berasal dari subnet Blueno, Cipher, Elena dan Fukuro dengan beraturan sebagai berikut
 
